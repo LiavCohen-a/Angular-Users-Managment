@@ -1,0 +1,46 @@
+<div
+  class="fatherDiv"
+  [style.background-color]="showList ? '#FF7F50' : 'white'"
+  [style.border-color]="isAllComplete ? 'red' : 'green'"
+>
+  <div (click)="ShowList()">
+    ID : {{ userFromfather._id }} <br />
+    Name : {{ userFromfather.name }} <br />
+    Email : {{ userFromfather.email }} <br />
+  </div>
+  <span
+    style="background-color: lightslategray"
+    (mouseover)="showDetails()"
+    (click)="hideDetails()"
+  >
+    Other Data
+  </span>
+
+  &nbsp;&nbsp;&nbsp;
+  <div *ngIf="opensection">
+    &nbsp;&nbsp;&nbsp; Street : {{ userFromfather.street }} <br />
+    &nbsp;&nbsp;&nbsp; City : {{ userFromfather.city }} <br />
+    &nbsp;&nbsp;&nbsp; Zip Code : {{ userFromfather.zipcode }} <br />
+  </div>
+  <input
+    type="button"
+    value="Update"
+    (click)="UpdateUser(userFromfather._id)"
+  />
+  &nbsp;
+  <input type="button" value="Delete" (click)="DeleteUser()" />
+</div>
+<div>
+  <app-todo-list
+    *ngIf="showList"
+    [task]="userFromfather.tasks"
+    [userID]="userFromfather._id"
+  ></app-todo-list>
+
+  <app-post
+    *ngIf="showList"
+    [posts]="userFromfather.posts"
+    [userID]="userFromfather._id"
+  ></app-post>
+</div>
+<br />

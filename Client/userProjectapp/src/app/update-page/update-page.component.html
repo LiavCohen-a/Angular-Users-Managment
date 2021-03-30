@@ -1,0 +1,17 @@
+<form #f="ngForm" (ngSubmit)="UpdateUser(f.valid)">
+  New Name : <input type="text" name="name" [(ngModel)]="newUserData.name" />
+  <br />
+  New Email :
+  <input type="text" name="email" [(ngModel)]="newUserData.email" /> <br />
+  New City : <input type="text" name="city" [(ngModel)]="newUserData.city" />
+  <br />
+  New Street :
+  <input type="text" name="street" [(ngModel)]="newUserData.street" /> <br />
+  New Zip Code :
+  <input type="text" name="zipcode" [(ngModel)]="newUserData.zipcode" /> <br />
+
+  <input type="submit" value="Update User" />
+</form>
+<br /><br />
+<br />
+<input type="button" value="Back To List" routerLink="" />

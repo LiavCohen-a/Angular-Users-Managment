@@ -1,0 +1,11 @@
+Search :
+<input
+  type="text"
+  #t
+  placeholder="FROM name OR email"
+  (keyup)="Search(t.value)"
+/>
+
+<input type="button" value="Add" (click)="AddUser()" />
+
+<app-user [userFromfather]="user" *ngFor="let user of users"></app-user>

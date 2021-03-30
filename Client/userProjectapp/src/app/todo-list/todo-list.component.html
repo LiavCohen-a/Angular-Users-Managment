@@ -1,0 +1,35 @@
+<div class="fatherDiv" style="border-color: blue">
+  <h4>
+    Task User : {{ userID }} &nbsp;&nbsp;&nbsp;
+    <input class="taskadd" type="button" value="Add Task" (click)="addDiv()" />
+  </h4>
+
+  <div *ngIf="formdiv">
+    <form #f="ngForm" (ngSubmit)="AddTask()">
+      Title :
+      <input type="text" name="title" #title [(ngModel)]="addtask.title" />
+      <input type="submit" value="Add Task" /> &nbsp;
+      <input type="button" value="Cancel" (click)="back()" />
+    </form>
+  </div>
+  <div *ngIf="!div">
+    <div *ngFor="let t of task">
+      <div
+        style="border-style: solid"
+        [style.border-color]="isAllComplete ? 'skyblue' : 'skyblue'"
+      >
+        Title : {{ t.title }} <br />
+        Completed : {{ t.completed ? "Is Completed" : "Isnt Completed" }}
+        <span *ngIf="!t.completed">
+          &nbsp;&nbsp;
+          <input
+            type="button"
+            value="Mark Completed"
+            (click)="MarkCompleted(t.title)"
+          />
+        </span>
+      </div>
+      <br />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+.fatherDiv {
+  border-style: solid;
+  border: 2px solid;
+  border-radius: 5px;
+  width: 350px;
+  margin: 10px;
+  float: right;
+}

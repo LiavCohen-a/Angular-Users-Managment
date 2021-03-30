@@ -1,0 +1,28 @@
+<form #f="ngForm" (ngSubmit)="AddUser(f.valid)">
+  Name :
+  <input required type="text" name="name" #name [(ngModel)]="user.name" />
+  <br />
+  Email :
+  <input required type="text" name="email" #email [(ngModel)]="user.email" />
+  <br />
+  City :
+  <input required type="text" name="city" #name [(ngModel)]="user.city" />
+  <br />
+  Street :
+  <input required type="text" name="street" #name [(ngModel)]="user.street" />
+  <br />
+  Zip Code :
+  <input
+    minlength="2"
+    type="text"
+    name="zipcode"
+    #zipcode
+    [(ngModel)]="user.zipcode"
+  />
+  <br />
+
+  <input type="submit" [disabled]="!f.valid" value="Add User" />
+</form>
+<br /><br />
+<br />
+<input type="button" value="Back To List" routerLink="" />

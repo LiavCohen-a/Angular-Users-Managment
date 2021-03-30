@@ -1,0 +1,30 @@
+<div class="fatherDiv" style="border-color: purple">
+  <h4>
+    Posts User : {{ userID }} &nbsp;&nbsp;
+    <input class="taskadd" type="button" value="Add Post" (click)="addDiv()" />
+  </h4>
+
+  <div *ngIf="formdiv">
+    <form #f="ngForm" (ngSubmit)="AddPost()">
+      Title :
+      <input type="text" name="title" #title [(ngModel)]="addpost.title" />
+      <br />
+      Body : <input type="text" name="comp" #comp [(ngModel)]="addpost.body" />
+      <br />
+      <input type="submit" value="Add Post" routerLink="" /> &nbsp;
+      <input type="button" value="Cancel" (click)="back()" />
+    </form>
+  </div>
+  <div *ngIf="!div">
+    <div *ngFor="let p of posts">
+      <div
+        style="border-style: solid"
+        [style.border-color]="isAllComplete ? 'slateblue' : 'slateblue'"
+      >
+        Title : {{ p.title }} <br />
+        Body : {{ p.body }}
+      </div>
+      <br />
+    </div>
+  </div>
+</div>
